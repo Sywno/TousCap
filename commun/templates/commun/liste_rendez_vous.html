@@ -1,0 +1,46 @@
+{% extends 'commun/base.html' %}
+
+{% load static %}
+
+{% block content %}
+  <div class="container mt-5">
+    <h2 class="mb-4">Liste des rendez-vous</h2>
+
+    <table class="table table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Nom</th>
+          <th scope="col">Email</th>
+          <th scope="col">Date</th>
+          <th scope="col">Heure</th>
+          <th scope="col">Action</th> <!-- Ajout de la colonne pour les boutons -->
+        </tr>
+      </thead>
+
+      <tbody>
+        {% for rdv in rendez_vous %}
+          <tr>
+            <td>{{ rdv.nom_utilisateur }}</td>
+            <td>{{ rdv.email }}</td>
+            <td>{{ rdv.date }}</td>
+            <td>{{ rdv.heure }}</td>
+            <td>
+              <a href="{% url 'mission' rdv.id %}">Détail</a>
+            </td>
+          </tr>
+        {% empty %}
+          <tr>
+            <td colspan="5" class="text-center">Aucun rendez-vous pour le moment.</td>
+          </tr>
+        {% endfor %}
+        {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+      </tbody>
+    </table>
+  </div>
+{% endblock %}

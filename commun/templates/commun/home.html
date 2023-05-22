@@ -1,0 +1,89 @@
+{% extends 'commun/base.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+	{% if user.is_authenticated %}
+	<h2 class="text-center">Bienvenue sur notre site <span style="text-transform: uppercase; color: #F97613;">{{ user.username }}</span></h2>
+	{% else %}
+	<h1 class="text-center">Bienvenue</h1>
+	{% endif %}
+  </div>
+  
+  
+  <div class="bloc l-bloc" id="bloc-2">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3 text-start">
+				<img src="{% static 'images/Tous.png' %}" class="img-fluid mx-auto d-block img-style lazyload" alt="image 4" width="200" height="236">
+			</div>
+		</div>
+	</div>
+</div>
+<!-- bloc-2 END -->
+
+<!-- bloc-2 END -->
+
+<!-- bloc-2 -->
+<div class="bloc l-bloc none" id="bloc-2">
+	<div class="container bloc-lg">
+		<div class="row">
+			<div class="col-md-4">
+				<div class="card">
+					<div class="card-header bgc-2144">
+						<h3 class="mg-clear text-center tc-7352">
+							Notre équipe
+						</h3>
+					</div>
+					<div class="card-body">
+						<p>
+							Etudiants à Adimaker, nous développons un réseau pour aider les personnes en difficultés. Nous sommes une équipe de 7
+						</p>
+					</div>
+					<div class="card-footer bgc-2144">
+						<a href="{% url 'equipe' %}" class="btn btn-d w-100 btn-lg">Nous découvrir</a>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4 mt-3 mt-md-0">
+				<div class="card">
+					<div class="card-header bgc-2144">
+						<h3 class="mg-clear text-center tc-7352">
+							Qui sommes-nous ?
+						</h3>
+					</div>
+					<div class="card-body card-body-bloc-2-style">
+						<p>
+
+							Notre site est un site de mise en relation entre des familles et des bénévoles vise à faciliter la vie quotidienne de ceux qui ont besoin d'un coup de main pour accomplir certaines tâches. Les familles peuvent trouver des bénévoles disposés à les aider pour des activités telles que la garde d'enfants, les courses, la cuisine, l'aide aux devoirs ou la promenade des animaux de compagnie.
+						</p>
+					</div>
+					
+				</div>
+			</div>
+			<div class="col-md-4 mt-3 mt-md-0 mt-lg-0">
+				<div class="card">
+					<div class="card-header bgc-2144">
+						<h3 class="mg-clear text-center tc-7352">
+							HANDIA
+						</h3>
+					</div>
+					<div class="card-body card-body-style">
+						<p>
+							En ce moment nous agissons seulement dans le secteur de Lille
+						</p>
+					</div>
+					<div class="card-footer bgc-2144 card-footer-style">
+						<a href="https://handia.000webhostapp.com/index.html" class="btn btn-d btn-lg w-100">Allez vers</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- bloc-2 END -->
+
+<!-- ScrollToTop Button -->
+<button aria-label="Scroll to top button" class="bloc-button btn btn-d scrollToTop" onclick="scrollToTarget('1',this)"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 32 32"><path class="scroll-to-top-btn-icon" d="M30,22.656l-14-13-14,13"/></svg></button>
+<!-- ScrollToTop Button END-->
+
+{% endblock %}

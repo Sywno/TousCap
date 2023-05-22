@@ -1,0 +1,29 @@
+{% extends 'commun/base.html' %}
+{% block content %}
+<style>
+    .mission-vignette {
+        border: 1px solid #ddd;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-radius: 4px;
+        margin-bottom: 20px;
+    }
+</style>
+<h1 class="text-center mb-4">Mes missions</h1>
+    {% for agenda in user_agendas %}
+        <div class="mission-vignette">
+            <h2>Mission chez <span class="text-primary">{{ agenda.nom_utilisateur }}</span></h2>
+            <p><strong>Téléphone:</strong> {{ agenda.tel }}</p>
+            <p><strong>Date et heure:</strong> {{ agenda.date }} {{ agenda.heure }}</p>
+            <p><strong>Lieu:</strong> {{ agenda.lieu }}</p>
+            <p><strong>Commentaire:</strong> {{ agenda.commentaire }}</p>
+            <form method="POST" action="{% url 'supprimer_mission' agenda.id %}">
+                {% csrf_token %}
+                <input class="btn btn-danger" type="submit" value="Supprimer">
+            </form>
+        </div>
+        <hr class="my-4">
+    {% empty %}
+        <p>Vous n'avez validé aucune mission pour le moment.</p>
+    {% endfor %}
+{% endblock %}

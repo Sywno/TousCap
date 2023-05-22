@@ -1,0 +1,100 @@
+{% extends 'commun/base.html' %}
+{% load static %}
+{% block content %}
+
+<!-- Preloader END -->
+
+
+<!-- bloc-5 -->
+<div class="bloc l-bloc" id="bloc-5">
+	<div class="container ">
+		<div class="row">
+			<div class="col text-center">
+				<h3 class="mg-md tc-2205">
+					<strong>Notre equipe</strong><br>
+				</h3>
+			</div>
+		</div>
+		<div class="row voffset">
+			<div class="col-lg-3 col-md-6 text-center">
+				<img src="{% static 'images/theo.jpg' %}" class="img-fluid mx-auto d-block lazyload" alt="placeholder user" width="267" height="267">
+				<h3 class="mg-md">
+					ROUILLER Théo
+				</h3>
+				<p>
+					Chef de projet
+				</p>
+			</div>
+			<div class="col-lg-3 col-md-6 text-center">
+				<img src="{% static 'images/baptiste.jpeg' %}" class="img-fluid mx-auto d-block lazyload" alt="placeholder user" width="300" height="267">
+				<h3 class="mg-md">
+					CHEVASSUS Baptiste
+				</h3>
+				<p>
+					Chef de projet
+				</p>
+			</div>
+			<div class="col-lg-3 col-md-6 text-center">
+				<img src="{% static 'images/pauline.jpeg' %}" class="img-fluid mx-auto d-block lazyload" alt="placeholder user" width="230" height="267">
+				<h3 class="mg-md">
+					MALBRANQUE Pauline
+				</h3>
+				<p>
+					Pôle communication
+				</p>
+			</div>
+			<div class="col-lg-3 col-md-6 text-center">
+				<img src="{% static 'images/issam.jpg' %}" class="img-fluid mx-auto d-block lazyload" alt="placeholder user" width="300" height="267">
+				<h3 class="mg-md">
+					LOUNAS Issam
+				</h3>
+				<p>
+					Pôle communication
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- bloc-5 END -->
+
+<!-- bloc-6 -->
+<div class="bloc l-bloc" id="bloc-6">
+	<div class="container bloc-lg">
+		<div class="row">
+			<div class="col-lg-3 col-md-6 text-center">
+				<img src="{% static 'images/erwan.jpg' %}" class="img-fluid mx-auto d-block lazyload" alt="placeholder user" width="250" height="267">
+				<h3 class="mg-md">
+					KERGOZIEN Erwan
+				</h3>
+				<p>
+					Pôle informatique
+				</p>
+			</div>
+			<div class="col-lg-3 col-md-6 text-center">
+				<img src="{% static 'images/simon.jpg' %}" class="img-fluid mx-auto d-block lazyload" alt="placeholder user" width="267" height="267">
+				<h3 class="mg-md">
+					BEUVAIN Simon
+				</h3>
+				<p>
+					Pôle informatique
+				</p>
+			</div>
+			<div class="col-lg-3 col-md-6 text-center">
+				<img src="{% static 'images/niels.jpg' %}" class="img-fluid mx-auto d-block lazyload" alt="placeholder user" width="267" height="267">
+				<h3 class="mg-md text-lg-center mx-auto d-block">
+					ELLA PEKE Niels
+				</h3>
+				<p>
+					Pôle informatique
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- bloc-6 END -->
+
+<!-- ScrollToTop Button -->
+<button aria-label="Scroll to top button" class="bloc-button btn btn-d scrollToTop" onclick="scrollToTarget('1',this)"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 32 32"><path class="scroll-to-top-btn-icon" d="M30,22.656l-14-13-14,13"/></svg></button>
+<!-- ScrollToTop Button END-->
+
+{% endblock %}

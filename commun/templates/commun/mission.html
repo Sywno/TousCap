@@ -1,0 +1,31 @@
+
+
+
+
+{% extends 'commun/base.html' %}
+{% block content %}
+<style>
+    .mission-vignette {
+        border: 1px solid #ddd;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-radius: 4px;
+        margin-bottom: 20px;
+    }
+</style>
+        <div class="mission-vignette">
+            <h2>Mission chez <span class="text-primary">{{ agenda_item.nom_utilisateur }}</span></h2>
+            <p><strong>Téléphone:</strong> {{ agenda_item.tel }}</p>
+            <p><strong>Date et heure:</strong> {{ agenda_item.date }} {{ agenda_item.heure }}</p>
+            <p><strong>Lieu:</strong> {{ agenda_item.lieu }}</p>
+            <p><strong>Commentaire:</strong> {{ agenda_item.commentaire }}</p>
+            <form method="POST">
+                {% csrf_token %}
+                <input type="submit" name="action" value="Valider" class="btn btn-primary">
+            <input type="submit" name="action" value="Retour" class="btn btn-secondary">
+            </form>
+        </div>
+        <hr class="my-4">
+{% endblock %}
+    
+    
