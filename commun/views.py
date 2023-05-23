@@ -12,6 +12,10 @@ from django.shortcuts import render, get_object_or_404
 from django.contrib import messages
 from django.shortcuts import redirect
 from django.http import HttpResponseNotAllowed
+from django.contrib import messages
+from django.contrib.auth import authenticate, login
+from django.shortcuts import render, redirect
+from django.utils.translation import activate
 
 def supprimer_mission(request, agenda_id):
     if request.method == 'POST':
@@ -30,6 +34,9 @@ def mes_missions(request):
     user_agendas = Agenda.objects.filter(user=user)
     return render(request, 'commun/mes_missions.html', {'user_agendas': user_agendas}) 
 
+from django.contrib import messages
+
+
 def signup(request):
     if request.method == 'POST':
         form = SignupForm(request.POST)
@@ -39,10 +46,26 @@ def signup(request):
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
             login(request, user)
+            messages.success(request, "Inscription réussie. Vous êtes maintenant connecté.")
             return redirect('home')
+        else:
+            for field, errors in form.errors.items():
+                for error in errors:
+                    # Ajout de la traduction des messages d'erreur
+                    if field == 'first_name':
+                        messages.error(request, "Prénom : {}".format(error))
+                    elif field == 'last_name':
+                        messages.error(request, "Nom : {}".format(error))
+                    else:
+                        messages.error(request, "{} : {}".format(field, error))
     else:
         form = SignupForm()
+        activate('fr')  # Activation de la traduction française
+
     return render(request, 'commun/signup.html', {'form': form})
+
+
+
 
 def home(request):
     return render(request, 'commun/home.html')
@@ -60,6 +83,7 @@ def agenda(request):
     else:
         form = agendaForm()
     return render(request, 'commun/agenda.html', {'form':form})
+
 
 def logout_user(request):
     logout(request)

@@ -34,7 +34,7 @@ class Agenda(models.Model):
     user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True)
     nom_utilisateur = models.CharField(max_length=100)
     tel = models.CharField(max_length=100)
-    email = models.EmailField(unique=True)
+    email = models.EmailField()
     date = models.DateField()
     lieu = models.CharField(max_length=100)
     heure = models.TimeField()

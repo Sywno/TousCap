@@ -3,7 +3,11 @@ from django.contrib.auth.forms import UserCreationForm
 from .models import Client, Benevole
 from django.contrib.auth.models import User
 from django.forms import ModelForm
+from django.forms.widgets import DateInput, TimeInput
 from .models import Agenda
+from django.core.exceptions import ValidationError
+from datetime import datetime
+
 
 
 class SignupForm(UserCreationForm):
@@ -40,6 +44,8 @@ class SignupForm(UserCreationForm):
             benevole, created = Benevole.objects.get_or_create(user=user, defaults={'email': user.email, 'first_name': user.first_name, 'last_name': user.last_name, 'phone': user.phone, 'address': user.address})
         return user
     
+
+
 
 class agendaForm(forms.ModelForm):
     email = forms.EmailField(max_length=200, label='Email')

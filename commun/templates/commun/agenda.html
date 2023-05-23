@@ -5,7 +5,7 @@
 
 <div class="container mt-5">
   <div class="row justify-content-center">
-    <div class="col-md-8">
+    <div class="col-md-7">
       <div class="card">
         <div class="card-body">
           <h1 class="card-title text-center">Rendez-vous</h1>
@@ -14,12 +14,12 @@
             <div class="col-md-6">
               <label class="form-label" for="nom_utilisateur">Nom d'utilisateur</label>
               <input type="text" id="nom_utilisateur" class="form-control form-control-lg" name="nom_utilisateur"
-                placeholder="Nom d'utilisateur" />
+                placeholder="Nom d'utilisateur" value="{{ user.username }}" />
             </div>
             <div class="col-md-6">
               <label class="form-label" for="date">Date</label>
-            <input type="text" id="date" class="form-control form-control-lg" name="date"
-              placeholder="JJ/MM/AAAA"/>
+              <input type="date" id="date" class="form-control form-control-lg" name="date"
+                placeholder="Date" />
             </div>
             <div class="col-md-6">
               <label class="form-label" for="email">Email</label>
@@ -27,28 +27,38 @@
                 placeholder="Email"/>
             </div>
             <div class="col-md-6">
-              <label class="form-label" for="tel">Téléphone</label>
-            <input type="text" id="tel" class="form-control form-control-lg" name="tel"
-              placeholder="Téléphone" />
-            </div>
-            <div class="col-md-6">
-              <label class="form-label" for="lieu">Lieu</label>
-              <input type="lieu" id="lieu" class="form-control form-control-lg" name="lieu"
-                placeholder="Lieu" />
-            </div>
-            <div class="col-md-6">
               <label class="form-label" for="heure">Heure</label>
-            <input type="text" id="heure" class="form-control form-control-lg" name="heure"
-              placeholder="HH:MM" />
+              <input type="time" id="heure" class="form-control form-control-lg" name="heure"
+                placeholder="Heure" />
+            </div>
+            
+            <div class="col-md-6">
+              <label class="form-label" for="lieu">Ville</label>
+              <input type="text" id="lieu" class="form-control form-control-lg" name="lieu"
+                placeholder="Ville" />
             </div>
             <div class="col-md-6">
               <label class="form-label" for="commentaire">Commentaire</label>
-              <input type="txt" id="commentaire" class="form-control form-control-lg" name="commentaire"
-                placeholder="Insérez un commentaire" />
+              <textarea id="commentaire" class="form-control form-control-lg" name="commentaire"
+                placeholder="Insérez un commentaire"></textarea>
             </div>
+            <div class="col-md-6">
+              <label class="form-label" for="tel">Téléphone</label>
+              <input type="tel" id="tel" class="form-control form-control-lg" name="tel"
+                pattern="[0-9]{10}" placeholder="Téléphone" required />
+            </div>
+            
             <div class="col-12 text-center">
               <button type="submit" class="btn btn-primary">Soumettre</button>
             </div>
+            {% if messages %}
+              <ul class="messages">
+                {% for message in messages %}
+                  <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+
           </form>
         </div>
       </div>
